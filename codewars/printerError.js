@@ -10,7 +10,7 @@ function printerError(code){
 
 function codeChecker(code){
     let badCode = 'nopqrstuvwxyz';
-    if (badCode.search(code) > 0){
+    if (badCode.search(code) > -1){
         return code;
     }
 }
