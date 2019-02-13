@@ -18,3 +18,21 @@ function codeChecker(code){
 var errors = printerError(s);
 
 errors
+
+
+// regex solution
+// function printerError(s) {
+//     return s.match(/[^a-m]/g).length + "/" + s.length;
+// }
+
+// my favorite solution
+// function printerError(s) {
+//     // your code
+//     var count = 0;
+//     for(var i = 0; i < s.length; i++) {
+//       if (s[i] > "m") {
+//         count++;
+//       }
+//     }
+//     return count+"/"+s.length;
+// }
