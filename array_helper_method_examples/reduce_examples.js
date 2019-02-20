@@ -33,4 +33,12 @@ function balancedParens(string) {
 
 }
 
-console.log(balancedParens("()"));
+// console.log(balancedParens("()"));
+
+// EXAMPLE 5
+var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+var totalDistance = trips.reduce(function(sum, trip){
+  return sum + trip.distance;
+}, 0);
+
