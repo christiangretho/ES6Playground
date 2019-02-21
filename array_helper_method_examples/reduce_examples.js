@@ -24,42 +24,62 @@ primaryColors.reduce(function(previous, primaryColors) {
 // EXAMPLE 3
 // match paranths interview question "()()()()"
 function balancedParens(string) {
-    return !string.split("").reduce(function(previous, char){
-      if (previous < 0) {return previous;}
-      if (char === "(") {return ++previous;}
-      if (char === ")") {return --previous;}
+  return !string.split("").reduce(function(previous, char) {
+    if (previous < 0) {
       return previous;
-    }, 0);
-
+    }
+    if (char === "(") {
+      return ++previous;
+    }
+    if (char === ")") {
+      return --previous;
+    }
+    return previous;
+  }, 0);
 }
 
 // console.log(balancedParens("()"));
 
 // EXAMPLE 5
-var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+var trips = [{ distance: 34 }, { distance: 12 }, { distance: 1 }];
 
-var totalDistance = trips.reduce(function(sum, trip){
+var totalDistance = trips.reduce(function(sum, trip) {
   return sum + trip.distance;
 }, 0);
 
 // EXAMPLE 6
 var desks = [
-  { type: 'sitting' },
-  { type: 'standing' },
-  { type: 'sitting' },
-  { type: 'sitting' },
-  { type: 'standing' }
+  { type: "sitting" },
+  { type: "standing" },
+  { type: "sitting" },
+  { type: "sitting" },
+  { type: "standing" },
 ];
 
-var deskTypes = desks.reduce(function(sum, desk) {
-  if (desk.type === 'sitting'){
-    ++sum.sitting;
+var deskTypes = desks.reduce(
+  function(sum, desk) {
+    if (desk.type === "sitting") {
+      ++sum.sitting;
     } else {
-    ++sum.standing;
+      ++sum.standing;
     }
     return sum;
-}, { sitting: 0, standing: 0 });
+  },
+  { sitting: 0, standing: 0 }
+);
 
 // console.log(deskTypes);
 
 // EXAMPLE 7 CHALLENGE find and reduce
+// return an array without duplicates
+
+var numbers = [1, 1, 2, 2, 3, 4, 4];
+function unique(array) {
+  array.reduce(function(uniqueArray, num) {
+    // if (uniqueArray.length > 1)
+    uniqueArray.find(function(number) {
+      return number != num;
+    });
+    return uniqueArray;
+  }, []);
+}
