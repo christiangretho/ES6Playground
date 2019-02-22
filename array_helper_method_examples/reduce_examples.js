@@ -1,10 +1,10 @@
 // reduce array helper method examples
 
-var numbers = [10, 20, 30];
+const numbers = [10, 20, 30];
 
-var sum = 0;
+let sum = 0;
 // basic for loop example
-for (var i = 0; i < numbers.length; i++) {
+for (let i = 0; i < numbers.length; i++) {
   sum += numbers[i];
 }
 
@@ -14,7 +14,7 @@ numbers.reduce(function(sum, number) {
 }, 0);
 
 // EXAMPLE 2
-var primaryColors = [{ color: "red" }, { color: "yellow" }, { color: "blue" }];
+const primaryColors = [{ color: "red" }, { color: "yellow" }, { color: "blue" }];
 
 primaryColors.reduce(function(previous, primaryColors) {
   previous.push(primaryColors.color);
@@ -41,14 +41,14 @@ function balancedParens(string) {
 // console.log(balancedParens("()"));
 
 // EXAMPLE 5
-var trips = [{ distance: 34 }, { distance: 12 }, { distance: 1 }];
+const trips = [{ distance: 34 }, { distance: 12 }, { distance: 1 }];
 
-var totalDistance = trips.reduce(function(sum, trip) {
+let totalDistance = trips.reduce(function(sum, trip) {
   return sum + trip.distance;
 }, 0);
 
 // EXAMPLE 6
-var desks = [
+const desks = [
   { type: "sitting" },
   { type: "standing" },
   { type: "sitting" },
@@ -56,7 +56,7 @@ var desks = [
   { type: "standing" },
 ];
 
-var deskTypes = desks.reduce(
+let deskTypes = desks.reduce(
   function(sum, desk) {
     if (desk.type === "sitting") {
       ++sum.sitting;
@@ -73,13 +73,12 @@ var deskTypes = desks.reduce(
 // EXAMPLE 7 CHALLENGE find and reduce
 // return an array without duplicates
 
-var numbers = [1, 1, 2, 2, 3, 4, 4];
+const numbers = [1, 1, 2, 2, 3, 4, 4];
 function unique(array) {
-  array.reduce(function(uniqueArray, num) {
-    // if (uniqueArray.length > 1)
-    uniqueArray.find(function(number) {
-      return number != num;
-    });
-    return uniqueArray;
+  return array.reduce(function(previous, num) {
+    if (!previous.find(function(pre){
+      return pre === num;
+    })){ previous.push(num); } 
+    return previous;
   }, []);
 }

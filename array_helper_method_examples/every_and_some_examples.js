@@ -1,15 +1,15 @@
 // Every array helper methods
 
 // EXAMPLE 1!
-var computers = [
+const computers = [
     {name: 'Apple', ram: 24},
     {name: 'Compaq', ram: 4},
     {name: 'Acer', ram: 32}
 ];
 
-var allComputersCanRunProgram = true;
+let allComputersCanRunProgram = true;
 
-var onlySomeComputersCanRunProgram = false;
+let onlySomeComputersCanRunProgram = false;
 
 /* 
 for loop every helper example
@@ -41,7 +41,7 @@ allComputersCanRunProgram = computers.every(function(computer){
 // console.log(onlySomeComputersCanRunProgram);
 
 // EXAMPLE 2!
-var names = [
+const names = [
     'Alexandria',
     'Matthew',
     'Joe'
@@ -64,11 +64,11 @@ Field.prototype.validate = function(){
     return this.value.length > 0;
 }
 
-var username = new Field("username");
-var password = new Field("password");
-var birthdate = new Field("birthdate");
+const username = new Field("username");
+const password = new Field("password");
+const birthdate = new Field("birthdate");
 
-var fields = [username, password, birthdate];
+const fields = [username, password, birthdate];
 
 fields.every(function(field){
     return field.validate();
@@ -77,24 +77,24 @@ fields.every(function(field){
 
 // EXAMPLE 4
 
-var users = [
+const users = [
     { id: 21, hasSubmitted: true },
     { id: 62, hasSubmitted: false },
     { id: 4, hasSubmitted: true }
   ];
   
-  var hasSubmitted = users.every(function(user){
+  let hasSubmitted = users.every(function(user){
     return user.hasSubmitted;
   });
 
 //   EXAMPLE 5
 
-var requests = [
+const requests = [
     { url: '/photos', status: 'complete' },
     { url: '/albums', status: 'pending' },
     { url: '/users', status: 'failed' }
   ];
   
-  var inProgress = requests.some(function(request){
+  let inProgress = requests.some(function(request){
       return request.status === 'pending';
   });
