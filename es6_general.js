@@ -44,7 +44,7 @@ const fibonacci = n => {
  */
 
 //  reduce example + find example + arrow function example +
-// enhanced object literals 
+// enhanced object literals in es6_general.js
 function createBookShop(inventory) {
   return {
     inventory, // refactored from inventory: inventory,
@@ -66,6 +66,58 @@ const inventory = [
 
 const bookShop = createBookShop(inventory);
 
-function saveFile(){
-  
+// Default function arguments Example
+
+function User(id){
+  this.id = id;
+}
+
+function generateId(){
+  return Math.random() * 9999999;
+}
+
+function createAdminUser(user = new User(generateId())) {
+  user.admin = true;
+  return user;
+
+}
+
+// the rest oporator (...) empties arguments into an array
+function addNumbers(...numbers) {
+  return numbers.reduce((sum, number) => {
+    return sum + number;
+  }, 0);
+}
+addNumbers(1,2,3,4,5);
+
+const defaultColors = ['red', 'green'];
+const userFavoriteColors = ['orange', 'yellow'];
+
+defaultColors.concat(userFavoriteColors);
+// spread oporator example
+[ ...defaultColors, ...userFavoriteColors];
+
+
+function validateShoppingList(...items){
+  if(items.indexOf('milk') < 0){
+    return ['milk', ...items];
+  }
+  return items;
+}
+
+validateShoppingList('oranges', 'bread', 'eggs')
+
+const MathLibrary = {
+  calculateProduct(...rest){
+    console.log
+    return this.multiply(...rest);
+  },
+  multiply(a, b){
+    return a * b;
+  }
+};
+
+// spread and rest examples
+function unshift(array, ...a) { // ...a indicates that any other arguments should be placed in an array
+  return [...a, ...array]; // this spreads the values into a single array
 }
